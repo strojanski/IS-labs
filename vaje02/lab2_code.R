@@ -162,7 +162,7 @@ knapsack <- function(x)
   f	
 }
 
-GA3 <- ga(type = "binary", fitness = knapsack, nBits = length(weights), maxiter = 1000, run = 200, popSize = 100)
+GA3 <- ga(type = "binary", fitness = knapsack, nBits = length(weights), maxiter = 1000, run = 200, popSize = 100, monitor=plot)
 
 summary(GA3)
 GA3@solution
@@ -315,7 +315,7 @@ myInitPopulation <- function(object)
 }
 
 GA4 <- ga(type = "binary", fitness = valueBin, nBits = 4*5*9*2,
-          popSize = 500, maxiter = 10, run = 200, population = myInitPopulation)
+          popSize = 500, maxiter = 300, run = 200, population = myInitPopulation)
 
 
 timetable2 <- function(solution,coach,team){
@@ -327,8 +327,8 @@ timetable2 <- function(solution,coach,team){
 t <- timetable2(GA4@solution[1,],2,1)
 t
 
-
-
+plot(GA4)
+summary(GA4)
 #
 #
 # EXAMPLE 5: Traveling salesman problem
